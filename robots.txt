@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kamara27.github.io/mofficial-hth-com-cn-2/sitemap.xml
