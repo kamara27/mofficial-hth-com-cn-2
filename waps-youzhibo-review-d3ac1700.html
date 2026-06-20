@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>关于优直播 · 故事的起点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f2f3f5;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            color: #1e1e2a;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .wrap {
+            max-width: 920px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 叙事卡片容器 */
+        .story-card {
+            background: #ffffff;
+            border: 1px solid rgba(200, 202, 210, 0.45);
+            border-radius: 28px;
+            box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 2.8rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.25s ease;
+        }
+        .story-card:hover {
+            box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        /* 开场短句 — 极简克制 */
+        .hero-whisper {
+            font-size: 1.1rem;
+            color: #3b3b4a;
+            background: #f7f8fa;
+            border-left: 4px solid #9aa0b0;
+            padding: 0.8rem 1.4rem;
+            border-radius: 12px;
+            margin-bottom: 1.8rem;
+            font-weight: 380;
+            letter-spacing: 0.3px;
+        }
+        .hero-whisper em {
+            font-style: normal;
+            background: #e8eaf0;
+            padding: 0.1rem 0.5rem;
+            border-radius: 6px;
+            color: #2c2d3a;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 430;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+            color: #23242e;
+            line-height: 1.2;
+        }
+        h1 span {
+            background: linear-gradient(145deg, #525766, #343644);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 490;
+        }
+
+        .desc-lead {
+            font-size: 1.08rem;
+            color: #3a3b44;
+            margin: 1.6rem 0 1.9rem 0;
+            padding-right: 1rem;
+        }
+
+        /* 承接段落 */
+        .bridge-text {
+            background: #f9fafc;
+            padding: 1.6rem 1.8rem;
+            border-radius: 24px;
+            margin: 2rem 0 1.6rem 0;
+            border: 1px solid rgba(210, 213, 224, 0.3);
+            font-size: 1rem;
+            color: #2d2e38;
+        }
+        .bridge-text strong {
+            font-weight: 530;
+            color: #20212b;
+        }
+
+        /* 特点列表 — 标签卡片风格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.8rem 0;
+        }
+        .feature-item {
+            background: #f9fafb;
+            padding: 1.1rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid #e8eaf1;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: all 0.12s ease;
+            font-size: 0.98rem;
+        }
+        .feature-item:hover {
+            background: #f1f3f8;
+            border-color: #ced1dc;
+        }
+        .feature-item .label {
+            display: inline-block;
+            font-weight: 500;
+            background: #e4e7ef;
+            padding: 0.1rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
+            color: #333544;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            margin: 0.4rem 0 0 0;
+            color: #2f303b;
+        }
+
+        /* 场景与温和说明 */
+        .scene-note {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            margin: 2rem 0 2.6rem 0;
+        }
+        .scene-part {
+            flex: 1 1 180px;
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.4rem 1.2rem;
+            border: 1px solid #e5e7ef;
+            background: #fbfcfe;
+        }
+        .scene-part h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2d2f3a;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px dashed #d0d4e0;
+            padding-bottom: 0.4rem;
+        }
+        .scene-part p {
+            font-size: 0.95rem;
+            color: #3f404c;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #f7f8fc;
+            border-radius: 24px;
+            padding: 1.5rem 1.8rem;
+            margin: 2.4rem 0 1.8rem 0;
+            border: 1px solid #e2e4ed;
+        }
+        .faq-mini h4 {
+            font-weight: 430;
+            font-size: 1.1rem;
+            margin-bottom: 0.9rem;
+            color: #262835;
+        }
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #e8eaf2;
+            padding-bottom: 0.6rem;
+        }
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 460;
+            color: #30313d;
+            padding: 0.3rem 0;
+            outline: none;
+            font-size: 0.98rem;
+        }
+        .faq-mini summary::-webkit-details-marker {
+            color: #7b7f91;
+        }
+        .faq-mini details p {
+            margin: 0.5rem 0 0.2rem 0.8rem;
+            color: #3f414f;
+            font-size: 0.94rem;
+        }
+
+        /* 结尾温和收束 */
+        .gentle-foot {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #dbdfe9;
+            font-size: 0.98rem;
+            color: #3b3c48;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+        .gentle-foot a {
+            color: #3a3c4b;
+            text-decoration: none;
+            border-bottom: 1px solid #b4b9cb;
+            padding-bottom: 1px;
+            transition: border-color 0.15s;
+            font-weight: 400;
+        }
+        .gentle-foot a:hover {
+            border-bottom: 1px solid #1e1f2b;
+        }
+
+        .footnote {
+            font-size: 0.88rem;
+            color: #6c6f80;
+            margin-top: 0.8rem;
+        }
+
+        @media (max-width: 540px) {
+            body { padding: 1.2rem; }
+            .story-card { padding: 1.6rem 1.2rem; }
+            h1 { font-size: 1.8rem; }
+            .feature-grid { grid-template-columns: 1fr 1fr; }
+            .scene-note { flex-direction: column; }
+            .gentle-foot { flex-direction: column; align-items: flex-start; }
+        }
+        @media (max-width: 400px) {
+            .feature-grid { grid-template-columns: 1fr; }
+            .hero-whisper { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="story-card">
+
+        <!-- 开场短句 -->
+        <div class="hero-whisper">
+            <em>✦ 一段关于直播工具的叙事</em> —— 没有喧哗，只有逐渐清晰的轮廓。
+        </div>
+
+        <h1><span>优直播</span> · 从一次对话开始</h1>
+
+        <!-- 介绍段落（承接） -->
+        <div class="desc-lead">
+            许多事在屏幕背后悄然成形。一个直播间的搭建、一场分享的流转、一次远程协作的落点——这些场景背后往往需要一个稳定、克制的支点。  
+            这个支点，便是<a href="https://waps-youzhibo.com" style="text-decoration: none; border-bottom: 1px solid #a4a9bb; padding-bottom: 1px; color: #2e2f3d;">优直播</a>所尝试提供的：将复杂的技术逻辑封装在简洁的界面之后，让使用者的注意力回归内容本身。
+        </div>
+
+        <!-- 承接段落 —— 站点说明与可信角度 -->
+        <div class="bridge-text">
+            <strong>站点背景与可信说明</strong><br>
+            优直播并非一个突然出现的名字。它延续了对直播基础设施的长期理解，在功能设计上偏向务实与可配置。  
+            无论是个人创作者还是小型团队，都可以将其作为稳定的呈现层——它不强调颠覆，而强调适配。  
+            技术文档清晰，接口设计遵循常见规范，减少了接入时的猜测成本。对于希望保持自主控制权的用户而言，这是一种相对透明的选择。
+        </div>
+
+        <!-- 特点列表（差异化卡片） -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span class="label">模块</span>
+                <p>推流与播放组件分离，可根据场景自由组合</p>
+            </div>
+            <div class="feature-item">
+                <span class="label">配置</span>
+                <p>参数可调范围明确，不隐藏关键设置</p>
+            </div>
+            <div class="feature-item">
+                <span class="label">兼容</span>
+                <p>主流浏览器及移动端 WebView 均可运行</p>
+            </div>
+            <div class="feature-item">
+                <span class="label">文档</span>
+                <p>使用示例与 API 描述保持同步更新</p>
+            </div>
+        </div>
+
+        <!-- 场景与提示（温和插入） -->
+        <div class="scene-note">
+            <div class="scene-part">
+                <h3>教学与演示</h3>
+                <p>讲师无需额外安装软件，通过浏览器即可发起直播，学生端延迟稳定在合理范围。</p>
+            </div>
+            <div class="scene-part">
+                <h3>产品发布</h3>
+                <p>支持自定义画面布局与文本叠加，适合活动页面直接嵌入。</p>
+            </div>
+            <div class="scene-part">
+                <h3>内部沟通</h3>
+                <p>权限粒度可调，适合团队在私有网络下进行低延迟分享。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要（非模板化） -->
+        <div class="faq-mini">
+            <h4>常见疑问摘要</h4>
+            <details>
+                <summary>优直播是否需要安装客户端？</summary>
+                <p>主要功能基于 Web 端实现，无需下载桌面或移动客户端，通过现代浏览器即可使用。</p>
+            </details>
+            <details>
+                <summary>直播流是否支持录制？</summary>
+                <p>平台提供录制开关选项，录制文件存储于用户指定的存储位置（需在控制台预先配置）。</p>
+            </details>
+            <details>
+                <summary>能否嵌入到现有网站中？</summary>
+                <p>可以，通过 iframe 或 JavaScript SDK 均可实现嵌入，文档包含完整的集成示例。</p>
+            </details>
+            <details>
+                <summary>免费额度与付费模式？</summary>
+                <p>具体计费方式以官网说明为准，此处不代为陈述。建议直接参考 <a href="https://waps-youzhibo.com" style="text-decoration: none; border-bottom: 1px dashed #8b8fa0; color: #2c2d39;">优直播</a> 最新页面。</p>
+            </details>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="gentle-foot">
+            <span>一件工具的价值，往往体现在它被忘记的那一刻。</span>
+            <span><a href="https://waps-youzhibo.com">优直播</a> · 更多细节仍在演进</span>
+        </div>
+        <div class="footnote">
+            本文档仅为概念介绍页，不构成任何功能承诺。具体能力请以实际产品为准。
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
