@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优直播 · 再次遇见，持续在场</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+            flex: 1;
+        }
+        /* hero */
+        .hero {
+            padding: 80px 0 48px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #0b0b0b;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .hero .tagline {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 18px;
+            background: #edf2f7;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #2d3748;
+        }
+        /* 优势区 */
+        .strengths {
+            padding: 56px 0 40px;
+        }
+        .strengths h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 28px;
+            color: #1a202c;
+            letter-spacing: -0.01em;
+        }
+        .strength-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .strength-item {
+            background: #ffffff;
+            padding: 20px 20px 22px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            border: 1px solid #f1f3f5;
+            transition: box-shadow 0.2s;
+        }
+        .strength-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .strength-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #0b0b0b;
+        }
+        .strength-item p {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+        /* 说明区 */
+        .explain {
+            padding: 48px 0 40px;
+        }
+        .explain h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1a202c;
+        }
+        .explain p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            color: #2d3748;
+        }
+        .explain p:last-child {
+            margin-bottom: 0;
+        }
+        .explain .note {
+            background: #f1f5f9;
+            padding: 16px 20px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin-top: 24px;
+            border-left: 4px solid #a0aec0;
+        }
+        /* FAQ 摘要 */
+        .faq-summary {
+            padding: 40px 0 32px;
+            border-top: 1px solid #e9ecef;
+        }
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: #1a202c;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 4px;
+            color: #0b0b0b;
+        }
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin: 0;
+        }
+        .faq-more {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #2d3748;
+        }
+        /* 底部链接 */
+        .footer-links {
+            padding: 28px 0 48px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+        .footer-links a {
+            color: #1e293b;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+            transition: border-color 0.2s;
+        }
+        .footer-links a:hover {
+            border-bottom-color: #1e293b;
+        }
+        .footer-links .sep {
+            margin: 0 10px;
+            color: #cbd5e1;
+        }
+        .footer-links .small-note {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .strength-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 48px 0 32px;
+            }
+            .strengths, .explain, .faq-summary {
+                padding: 32px 0;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>再次打开，依旧在场</h1>
+            <p>浏览记录不会消失，收藏的频道仍在那里。一个专注于长期陪伴的直播平台，总在你需要的时候保持安静就绪。</p>
+            <span class="tagline">· 持续关注 · 不打扰 ·</span>
+        </section>
+
+        <section class="strengths">
+            <h2>为什么值得你再次回来</h2>
+            <div class="strength-grid">
+                <div class="strength-item">
+                    <h3>收藏即锚点</h3>
+                    <p>无论何时返回，之前收藏的直播间、主播与品类都会保留在原有位置，无需重新搜寻。</p>
+                </div>
+                <div class="strength-item">
+                    <h3>关注链不中断</h3>
+                    <p>你关注的主播动态会按时间整理，即便隔了一段时间，也能快速了解错过的内容。</p>
+                </div>
+                <div class="strength-item">
+                    <h3>浏览习惯记忆</h3>
+                    <p>平台会智能记住你的观看偏好与时段，再次打开时首页内容更贴合你的兴趣。</p>
+                </div>
+                <div class="strength-item">
+                    <h3>无冗余推送</h3>
+                    <p>不制造焦虑通知，尊重你的节奏。只有你主动打开时，才呈现最新动态。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="explain">
+            <h2>持续关注的逻辑</h2>
+            <p>很多直播平台追求单次停留时长，却忽略了用户“过一阵再回来看看”的真实需求。<a href="https://mains-youzhibo.com">优直播</a>在设计之初就把“再次访问”作为核心体验——你的观看历史、收藏夹、关注列表都被妥善存放，不会因为版本更新或长时间未登录而重置。</p>
+            <p>换言之，这里不鼓励冲动点击，而是为你构建一个可以随时回访的场域。无论是每周固定的兴趣节目，还是偶尔想起的老频道，打开后一切如常。</p>
+            <div class="note">
+                <strong>一点观察：</strong> 很多用户习惯将直播平台当作“背景音”或“习惯性打开”的存在。优直播的界面与交互为此做了优化——浏览时不刻意引导跳转，让持续关注成为一种自然行为。
+            </div>
+        </section>
+
+        <section class="faq-summary">
+            <h2>你可能想问</h2>
+            <div class="faq-item">
+                <strong>Q：收藏的直播间会失效吗？</strong>
+                <p>只要主播仍在开播，收藏链接就会保持有效。如果主播长时间未活动，收藏夹中会保留历史记录并标注时间，方便你判断是否取消关注。</p>
+            </div>
+            <div class="faq-item">
+                <strong>Q：很久没登录，数据还在吗？</strong>
+                <p>账号数据长期保留，包括关注、收藏、观看历史与个人设置。唯一可能的变动是部分临时活动类内容会按周期清理。</p>
+            </div>
+            <div class="faq-item">
+                <strong>Q：可以只收藏不关注吗？</strong>
+                <p>可以。收藏与关注是两套独立系统，你完全可以将心仪频道加入收藏而不必关注，适合轻度浏览需求。</p>
+            </div>
+            <div class="faq-more">
+                更多细节可以在平台内查阅帮助中心，或直接体验后自行验证。
+            </div>
+        </section>
+
+        <footer class="footer-links">
+            <span>回到主页</span>
+            <span class="sep">·</span>
+            <a href="https://mains-youzhibo.com">优直播</a>
+            <span class="sep">·</span>
+            <span>持续关注 · 收藏即锚点</span>
+            <div class="small-note">页面仅为介绍性展示，不构成服务承诺。</div>
+        </footer>
+    </div>
+</body>
+</html>
